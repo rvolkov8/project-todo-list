@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+
+  --standard-blue: #2563eb;
+  --lighter-blue: #3b82f6;
+  --lightest-blue: #60a5fa;
+  --white: #fff;
+  --gray: #f0f0f0;
+}
+
+.top-bar {
+  background: var(--standard-blue);
+
+  padding: 0 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-button-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-icon {
+  height: 30px;
+  width: 30px;
+  background: url(./assets/top-bar-assets/menu-icon.svg) no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+
+.home-icon {
+  height: 30px;
+  width: 30px;
+  background: url(./assets/top-bar-assets/home-icon.svg) no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+
+.menu-icon:hover,
+.home-icon:hover {
+  cursor: pointer;
+  background-color: var(--lighter-blue);
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.logo-text {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.logo-icon {
+  height: 30px;
+  width: 30px;
+  background: url(/src/assets/top-bar-assets/todo-logo.svg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}

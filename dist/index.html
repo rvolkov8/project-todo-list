@@ -13,12 +13,49 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="../src/style.css" />
+    <link rel="stylesheet" href="../src/top-bar.css" />
+    <link rel="stylesheet" href="../src/side-bar.css" />
+
     <script src="main.js" defer></script>
   </head>
   <body>
     <div class="content">
-      <div class="top-bar"></div>
-      <div class="side-bar"></div>
+      <div class="top-bar">
+        <div class="left-button-container">
+          <div class="menu-icon"></div>
+          <div class="home-icon"></div>
+        </div>
+        <div class="logo">
+          <div class="logo-text">Todo List</div>
+          <div class="logo-icon"></div>
+        </div>
+      </div>
+      <div class="side-bar">
+        <div class="categories">
+          <div class="category">
+            <div class="inbox-icon"></div>
+            <inbox class="category-text">Inbox</inbox>
+          </div>
+          <div class="category">
+            <div class="today-icon"></div>
+            <inbox class="category-text">Today</inbox>
+          </div>
+          <div class="category">
+            <div class="this-week-icon"></div>
+            <inbox class="category-text">This week</inbox>
+          </div>
+        </div>
+        <div class="projects">
+          <div class="project-title">
+            <div class="title-text">Projects</div>
+            <div class="add-project-button">+</div>
+          </div>
+          <div class="project">
+            <div class="project-name">Test project</div>
+          </div>
+        </div>
+      </div>
       <div class="main"></div>
     </div>
   </body>

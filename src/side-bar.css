@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+
+  --standard-blue: #2563eb;
+  --lighter-blue: #3b82f6;
+  --lightest-blue: #60a5fa;
+  --white: #fff;
+  --gray: #f0f0f0;
+  --dark-gray: #dedede;
+  --black: #000;
+}
+
+.side-bar {
+  background: var(--gray);
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  padding: 25px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 9px;
+
+  gap: 10px;
+}
+
+.category:hover {
+  cursor: pointer;
+  background: var(--dark-gray);
+}
+
+.inbox-icon {
+  height: 25px;
+  width: 25px;
+  background: url(assets/side-bar-assets/inbox-icon.svg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.today-icon {
+  height: 25px;
+  width: 25px;
+  background: url(assets/side-bar-assets/today-icon.svg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.this-week-icon {
+  height: 25px;
+  width: 25px;
+  background: url(assets/side-bar-assets/this-week-icon.svg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.category-text {
+  font-weight: 300;
+  color: var(--black);
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 6px;
+  border-radius: 9px;
+
+  cursor: pointer;
+}
+
+.project-title:hover {
+  background: var(--dark-gray);
+}
+
+.title-text {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.add-project-button {
+  border: none;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: var(--lightest-blue);
+
+  margin-right: 6px;
+}
+
+.add-project-button:hover {
+  color: var(--standard-blue);
+}
+
+.project {
+  display: flex;
+  align-items: center;
+
+  font-size: 0.9rem;
+
+  padding: 6px 6px 6px 12px;
+  border-radius: 9px;
+
+  cursor: pointer;
+}
+
+.project:hover {
+  background: var(--dark-gray);
+}
+
+.project-name {
+}
