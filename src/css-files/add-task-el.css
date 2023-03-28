@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+
+  --standard-blue: #2563eb;
+  --lighter-blue: #3b82f6;
+  --lightest-blue: #60a5fa;
+  --white: #fff;
+  --gray: #f0f0f0;
+  --dark-gray: #dedede;
+  --darker-gray: #c7c7c7;
+  --black: #000;
+}
+
+.add-task-el {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.plus-sign {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: var(--standard-blue);
+
+  width: 26.5px;
+
+  border-radius: 30px;
+}
+
+.add-task-text {
+  color: var(--darker-gray);
+}
+
+.add-task-el:hover .plus-sign {
+  color: var(--white);
+  background: var(--standard-blue);
+}
+
+.add-task-el:hover .add-task-text {
+  color: var(--standard-blue);
+}

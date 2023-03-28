@@ -53,7 +53,7 @@
 .inbox-icon {
   height: 25px;
   width: 25px;
-  background: url(assets/side-bar-assets/inbox-icon.svg) no-repeat;
+  background: url(/src/assets/side-bar-assets/inbox-icon.svg) no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -61,7 +61,7 @@
 .today-icon {
   height: 25px;
   width: 25px;
-  background: url(assets/side-bar-assets/today-icon.svg) no-repeat;
+  background: url(/src/assets/side-bar-assets/today-icon.svg) no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -69,7 +69,7 @@
 .this-week-icon {
   height: 25px;
   width: 25px;
-  background: url(assets/side-bar-assets/this-week-icon.svg) no-repeat;
+  background: url(/src/assets/side-bar-assets/this-week-icon.svg) no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -131,7 +131,4 @@
 
 .project:hover {
   background: var(--dark-gray);
-}
-
-.project-name {
 }

@@ -36,7 +36,7 @@
 .menu-icon {
   height: 30px;
   width: 30px;
-  background: url(./assets/top-bar-assets/menu-icon.svg) no-repeat;
+  background: url(/src/assets/top-bar-assets/menu-icon.svg) no-repeat;
   background-position: center;
   background-size: 80%;
 }
@@ -44,7 +44,7 @@
 .home-icon {
   height: 30px;
   width: 30px;
-  background: url(./assets/top-bar-assets/home-icon.svg) no-repeat;
+  background: url(/src/assets/top-bar-assets/home-icon.svg) no-repeat;
   background-position: center;
   background-size: 80%;
 }

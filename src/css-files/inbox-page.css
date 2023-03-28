@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+
+  --standard-blue: #2563eb;
+  --lighter-blue: #3b82f6;
+  --lightest-blue: #60a5fa;
+  --white: #fff;
+  --gray: #f0f0f0;
+  --dark-gray: #dedede;
+  --black: #000;
+}
+
+.main {
+  padding: 50px 250px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inbox title  */
+.inbox-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  cursor: default;
+}
+
+/* Tasks area */
+.inbox-tasks {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}

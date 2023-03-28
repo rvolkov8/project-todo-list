@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+
+  --standard-blue: #2563eb;
+  --lighter-blue: #3b82f6;
+  --lightest-blue: #60a5fa;
+  --white: #fff;
+  --gray: #f0f0f0;
+  --dark-gray: #dedede;
+  --darker-gray: #c7c7c7;
+  --black: #000;
+}
+
+.task-container {
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 3px;
+}
+
+.task-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.added-task-name {
+  font-size: 1.1rem;
+}
+
+.added-task-description {
+  font-weight: 300;
+  color: var(--darker-gray);
+  font-size: 0.8rem;
+}
+
+.added-task-due-date {
+  font-weight: 300;
+  color: var(--darker-gray);
+  font-size: 0.8rem;
+}

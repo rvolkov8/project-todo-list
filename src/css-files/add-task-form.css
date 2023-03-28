@@ -1,0 +1,128 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 16px;
+
+  --standard-blue: #2563eb;
+  --lighter-blue: #3b82f6;
+  --lightest-blue: #60a5fa;
+  --white: #fff;
+  --gray: #f0f0f0;
+  --dark-gray: #dedede;
+  --darker-gray: #c7c7c7;
+  --black: #000;
+}
+
+.add-task-form {
+  border: 1px solid var(--dark-gray);
+  padding: 15px;
+  border-radius: 9px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.task-name {
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--black);
+
+  margin-bottom: 5px;
+}
+
+.task-description {
+  border: none;
+  font-weight: 300;
+  color: var(--black);
+
+  margin-bottom: 20px;
+}
+
+.task-name:focus,
+.task-description:focus {
+  outline: none;
+}
+
+.additional-info {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.task-due-date,
+.task-priority,
+.task-project {
+  padding: 5px;
+  border: 1px solid var(--darker-gray);
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.task-project {
+  border: none;
+}
+
+.task-due-date:hover,
+.task-priority:hover,
+.task-project:hover {
+  background: var(--gray);
+}
+
+.task-due-date:focus,
+.task-priority:focus,
+.task-project:focus {
+  background: var(--gray);
+  outline: none;
+}
+
+.task-upload-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 15px;
+  border-top: 1px solid var(--dark-gray);
+}
+
+/* Buttons */
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-button,
+.add-task-button {
+  padding: 7px 18px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: var(--gray);
+}
+
+.cancel-button:hover {
+  background: var(--dark-gray);
+}
+
+.add-task-button {
+  background-color: var(--standard-blue);
+  color: var(--white);
+}
+
+.add-task-button:hover {
+  background: var(--lighter-blue);
+}
