@@ -33,7 +33,7 @@ export default function TaskForm() {
     // Creates task due date input field
     taskDueDate = document.createElement('INPUT');
     taskDueDate.setAttribute('type', 'date');
-    taskDueDate.value = date.formatDate();
+    taskDueDate.value = date.formatDate(date.currDate);
     taskDueDate.classList.add('task-due-date');
     // Creates task priority input field
     taskPriority = document.createElement('SELECT');
@@ -78,11 +78,7 @@ export default function TaskForm() {
     projectOne.setAttribute('value', 'inbox');
     projectOne.textContent = 'Inbox';
 
-    const projectTwo = document.createElement('option');
-    projectTwo.setAttribute('value', 'today');
-    projectTwo.textContent = 'Today';
-
-    taskProject.append(projectOne, projectTwo);
+    taskProject.append(projectOne);
     // Creates task form buttons container
     const buttonsContainer = document.createElement('div');
     buttonsContainer.classList.add('buttons-container');
@@ -125,7 +121,7 @@ export default function TaskForm() {
     taskName.value = 'It is an example of task name';
     taskDescription.value =
       'It is an example of task description in one sentence';
-    taskDueDate.value = date.formatDate();
+    taskDueDate.value = date.formatDate(date.currDate);
     taskPriority.selectedIndex = 0;
     taskProject.selectedIndex = 0;
   }

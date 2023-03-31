@@ -30,14 +30,14 @@
 }
 
 /* Inbox title  */
-.inbox-title {
+.title {
   font-size: 1.7rem;
   font-weight: 700;
   cursor: default;
 }
 
 /* Tasks area */
-.inbox-tasks {
+.tasks {
   display: flex;
   flex-direction: column;
 

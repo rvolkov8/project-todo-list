@@ -1,6 +1,9 @@
+import DateObj from './Date';
+
+const date = DateObj();
 // Factory functions to create library for all the tasks
 export default function taskLibrary() {
-  const taskArr = [];
+  const tasksArr = [];
 
   function createTask(taskInfoArr) {
     return {
@@ -13,28 +16,44 @@ export default function taskLibrary() {
   }
 
   function addTask(task) {
-    taskArr.push(task);
+    tasksArr.push(task);
   }
 
   function getAllTasks() {
-    return taskArr;
+    return tasksArr;
   }
 
-  function getInboxTasks() {
+  // eslint-disable-next-line consistent-return
+  function getTasks(page) {
     const inboxTasksArr = [];
-    for (let i = 0; i < taskArr.length; i += 1) {
-      const task = taskArr[i];
-      if (task.project === 'inbox') {
-        inboxTasksArr.push(task);
-      }
+    const todayTasksArr = [];
+    const thisWeekArr = [];
+
+    const thisWeekDates = date.getDatesOfWeekStartingFromMonday(date.currDate);
+
+    tasksArr.forEach((task) => {
+      if (task.project === 'inbox') inboxTasksArr.push(task);
+      if (task.dueDate === date.formatDate(date.currDate))
+        todayTasksArr.push(task);
+      if (thisWeekDates.includes(task.dueDate)) thisWeekArr.push(task);
+    });
+
+    switch (page) {
+      case 'inbox':
+        return inboxTasksArr;
+      case 'today':
+        return todayTasksArr;
+      case 'this-week':
+        return thisWeekArr;
+      default:
+        break;
     }
-    return inboxTasksArr;
   }
 
   return {
     createTask,
     addTask,
     getAllTasks,
-    getInboxTasks,
+    getTasks,
   };
 }

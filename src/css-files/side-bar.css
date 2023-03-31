@@ -43,10 +43,17 @@
   border-radius: 9px;
 
   gap: 10px;
+
+  cursor: pointer;
 }
 
 .category:hover {
-  cursor: pointer;
+  background: var(--dark-gray);
+}
+
+.category.inbox.pressed,
+.category.today.pressed,
+.category.this-week.pressed {
   background: var(--dark-gray);
 }
 
