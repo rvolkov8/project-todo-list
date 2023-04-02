@@ -1,8 +1,10 @@
 import './css-files/add-task-form.css';
 import DateObj from './Date';
+import taskLibrary from './TaskLibrary';
 
 // Factory function to create task form object
-export default function TaskForm() {
+export default function taskForm() {
+  const taskLibraryObj = taskLibrary();
   const date = DateObj();
   let taskName;
   let taskDescription;
@@ -74,11 +76,12 @@ export default function TaskForm() {
     taskProject.setAttribute('id', 'project');
     taskProject.classList.add('task-project');
 
-    const projectOne = document.createElement('option');
-    projectOne.setAttribute('value', 'inbox');
-    projectOne.textContent = 'Inbox';
+    const projectInbox = document.createElement('option');
+    projectInbox.setAttribute('value', 'inbox');
+    projectInbox.textContent = 'Inbox';
 
-    taskProject.append(projectOne);
+    taskProject.append(projectInbox);
+
     // Creates task form buttons container
     const buttonsContainer = document.createElement('div');
     buttonsContainer.classList.add('buttons-container');
@@ -107,6 +110,16 @@ export default function TaskForm() {
     return addTaskFormEl;
   }
 
+  function addProjectToTaskForm(projectName) {
+    const projectSelectEl = document.querySelector('.task-project');
+
+    const project = document.createElement('option');
+    project.setAttribute('value', projectName);
+    project.textContent = projectName;
+
+    projectSelectEl.append(project);
+  }
+
   function getTaskInfo() {
     return [
       taskName.value,
@@ -127,7 +140,9 @@ export default function TaskForm() {
   }
 
   return {
+    taskLibraryObj,
     createTaskForm,
+    addProjectToTaskForm,
     getTaskInfo,
     clearForm,
   };

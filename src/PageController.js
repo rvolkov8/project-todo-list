@@ -10,16 +10,24 @@ export default function pageController(taskLibraryObj) {
   const domControllerObj = domController();
 
   function createPage(page) {
-    const titleText = {
-      inbox: 'Inbox',
-      today: 'Today',
-      'this-week': 'This week',
-    };
-
+    const titleText = page;
     // Creates title element
     const title = document.createElement('div');
     title.classList.add('title');
-    title.textContent = titleText[page];
+    switch (page) {
+      case 'inbox':
+        title.textContent = 'Inbox';
+        break;
+      case 'today':
+        title.textContent = 'Today';
+        break;
+      case 'this-week':
+        title.textContent = 'This week';
+        break;
+      default:
+        title.textContent = titleText;
+        break;
+    }
     mainContentEl.append(title);
 
     // Creates  projects div
@@ -86,5 +94,35 @@ export default function pageController(taskLibraryObj) {
     domControllerObj.showTasks(taskLibraryObj.getTasks(page), tasksEl);
   }
 
-  return { createPage, chooseCategory };
+  const inboxCategory = document.querySelector('.category.inbox');
+  const todayCategory = document.querySelector('.category.today');
+  const thisWeekCategory = document.querySelector('.category.this-week');
+
+  function chooseCategoryAndUpdateUI(categoryEl, categoryName) {
+    if (!categoryEl.classList.contains('pressed')) {
+      inboxCategory.classList.remove('pressed');
+      todayCategory.classList.remove('pressed');
+      thisWeekCategory.classList.remove('pressed');
+
+      const projectsNodes = document.querySelectorAll('.project');
+      for (let i = 0; i < projectsNodes.length; i += 1) {
+        const node = projectsNodes[i];
+        node.classList.remove('pressed');
+      }
+      categoryEl.classList.add('pressed');
+      const page = categoryName;
+      chooseCategory(page);
+    }
+  }
+
+  function updateTaskForm(projectName) {
+    taskFormObj.addProjectToTaskForm(projectName);
+  }
+
+  return {
+    createPage,
+    chooseCategory,
+    chooseCategoryAndUpdateUI,
+    updateTaskForm,
+  };
 }

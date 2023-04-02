@@ -112,8 +112,23 @@ export default function domController() {
     });
   }
 
+  function showProjects(projectArr, projectsEl) {
+    projectArr.forEach((project) => {
+      const projectDiv = document.createElement('div');
+      projectDiv.classList.add('project');
+
+      const projectNameDiv = document.createElement('div');
+      projectNameDiv.classList.add('project-name');
+      projectNameDiv.textContent = project;
+
+      projectDiv.append(projectNameDiv);
+      projectsEl.append(projectDiv);
+    });
+  }
+
   return {
     toggleAppearanceFlex,
     showTasks,
+    showProjects,
   };
 }

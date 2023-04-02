@@ -51,9 +51,13 @@
   background: var(--dark-gray);
 }
 
-.category.inbox.pressed,
+/* .category.inbox.pressed,
 .category.today.pressed,
 .category.this-week.pressed {
+  background: var(--dark-gray);
+} */
+
+*.pressed {
   background: var(--dark-gray);
 }
 
@@ -100,6 +104,7 @@
   border-radius: 9px;
 
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .project-title:hover {
@@ -138,4 +143,56 @@
 
 .project:hover {
   background: var(--dark-gray);
+}
+
+.project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--dark-gray);
+  margin-bottom: 10px;
+}
+
+.project-name-input {
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+}
+
+.project-name-input:focus {
+  outline: none;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-button-project,
+.add-button-project {
+  flex: 1;
+  padding: 7px 0px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.cancel-button-project {
+  background: var(--gray);
+}
+
+.cancel-button-project:hover {
+  background: var(--dark-gray);
+}
+
+.add-button-project {
+  background-color: var(--standard-blue);
+  color: var(--white);
+}
+
+.add-button-project:hover {
+  background: var(--lighter-blue);
 }

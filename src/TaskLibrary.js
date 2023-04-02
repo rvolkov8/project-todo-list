@@ -4,6 +4,8 @@ const date = DateObj();
 // Factory functions to create library for all the tasks
 export default function taskLibrary() {
   const tasksArr = [];
+  const projectsArr = [];
+  let projectNamesArr = [];
 
   function createTask(taskInfoArr) {
     return {
@@ -23,16 +25,17 @@ export default function taskLibrary() {
     return tasksArr;
   }
 
-  // eslint-disable-next-line consistent-return
   function getTasks(page) {
     const inboxTasksArr = [];
     const todayTasksArr = [];
     const thisWeekArr = [];
+    const projectTasksArr = [];
 
     const thisWeekDates = date.getDatesOfWeekStartingFromMonday(date.currDate);
 
     tasksArr.forEach((task) => {
       if (task.project === 'inbox') inboxTasksArr.push(task);
+      if (task.project === page) projectTasksArr.push(task);
       if (task.dueDate === date.formatDate(date.currDate))
         todayTasksArr.push(task);
       if (thisWeekDates.includes(task.dueDate)) thisWeekArr.push(task);
@@ -48,6 +51,19 @@ export default function taskLibrary() {
       default:
         break;
     }
+    return projectTasksArr;
+  }
+
+  function getProjectNames() {
+    projectNamesArr = [];
+    projectsArr.forEach((project) => {
+      projectNamesArr.push(project.name);
+    });
+    return projectNamesArr;
+  }
+
+  function addProject(projectName) {
+    projectsArr.push({ name: projectName });
   }
 
   return {
@@ -55,5 +71,7 @@ export default function taskLibrary() {
     addTask,
     getAllTasks,
     getTasks,
+    addProject,
+    getProjectNames,
   };
 }
