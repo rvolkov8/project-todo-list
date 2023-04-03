@@ -3,8 +3,14 @@ import DateObj from './Date';
 const date = DateObj();
 // Factory functions to create library for all the tasks
 export default function taskLibrary() {
-  const tasksArr = [];
-  const projectsArr = [];
+  const tasksArr = localStorage.getItem('tasksArr')
+    ? JSON.parse(localStorage.getItem('tasksArr'))
+    : [];
+
+  const projectsArr = localStorage.getItem('projectsArr')
+    ? JSON.parse(localStorage.getItem('projectsArr'))
+    : [];
+
   let projectNamesArr = [];
 
   function createTask(taskInfoArr) {
@@ -19,6 +25,7 @@ export default function taskLibrary() {
 
   function addTask(task) {
     tasksArr.push(task);
+    localStorage.setItem('tasksArr', JSON.stringify(tasksArr));
   }
 
   function getAllTasks() {
@@ -64,6 +71,7 @@ export default function taskLibrary() {
 
   function addProject(projectName) {
     projectsArr.push({ name: projectName });
+    localStorage.setItem('projectsArr', JSON.stringify(projectsArr));
   }
 
   return {

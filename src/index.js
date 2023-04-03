@@ -89,4 +89,8 @@ addButton.addEventListener('click', () => {
 
 // Creates inbox page content
 pageControllerObj.createPage('inbox');
+domControllerObj.showProjects(
+  taskLibraryObj.getProjectNames(),
+  projectsContainer
+);
 pageControllerObj.chooseCategoryAndUpdateUI(inboxCategory, 'inbox');

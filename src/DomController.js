@@ -97,7 +97,21 @@ export default function domController() {
     }
 
     taskInfoContainer.append(taskName, taskDescription, taskDueDate);
-    taskContainer.append(checkBoxContainer, taskInfoContainer);
+
+    const taskOperationsContainer = document.createElement('div');
+    taskOperationsContainer.classList.add('task-operations-container');
+
+    const deleteTaskButton = document.createElement('button');
+    deleteTaskButton.classList.add('delete-task-button');
+    deleteTaskButton.textContent = 'X';
+
+    taskOperationsContainer.append(deleteTaskButton);
+
+    taskContainer.append(
+      checkBoxContainer,
+      taskInfoContainer,
+      taskOperationsContainer
+    );
 
     return taskContainer;
   }

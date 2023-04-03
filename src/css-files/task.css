@@ -18,6 +18,8 @@
   --dark-gray: #dedede;
   --darker-gray: #c7c7c7;
   --black: #000;
+  --lighter-red: #f87171;
+  --red: #ef4444;
 }
 
 .task-container {
@@ -34,6 +36,7 @@
 }
 
 .task-info-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -53,4 +56,25 @@
   font-weight: 300;
   color: var(--darker-gray);
   font-size: 0.8rem;
+}
+
+.task-operations-container {
+  justify-self: flex-end;
+}
+
+.delete-task-button {
+  border: none;
+  border-radius: 50px;
+
+  height: 20px;
+  width: 20px;
+  background-color: var(--white);
+  color: var(--darker-gray);
+
+  cursor: pointer;
+}
+
+.delete-task-button:hover {
+  color: var(--white);
+  background-color: var(--lighter-red);
 }
