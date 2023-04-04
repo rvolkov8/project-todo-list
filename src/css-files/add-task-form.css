@@ -80,7 +80,6 @@
 .task-due-date:focus,
 .task-priority:focus,
 .task-project:focus {
-  background: var(--gray);
   outline: none;
 }
 

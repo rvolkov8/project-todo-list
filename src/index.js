@@ -6,6 +6,12 @@ const taskLibraryObj = taskLibrary();
 const domControllerObj = domController(taskLibraryObj);
 const pageControllerObj = pageController(taskLibraryObj, domControllerObj);
 
+const sideBarEl = document.querySelector('.side-bar');
+
+const menuIcon = document.querySelector('.menu-icon');
+const homeIcon = document.querySelector('.home-icon');
+const logoEl = document.querySelector('.logo');
+
 const inboxCategory = document.querySelector('.category.inbox');
 const todayCategory = document.querySelector('.category.today');
 const thisWeekCategory = document.querySelector('.category.this-week');
@@ -32,6 +38,18 @@ function updateCategory(categoryNode, categoryName) {
   pageControllerObj.chooseCategoryAndUpdateUI(categoryNode, categoryName);
   updateProjectSelectEl();
 }
+
+menuIcon.addEventListener('click', () => {
+  domControllerObj.toggleAppearanceFlex(sideBarEl);
+});
+
+homeIcon.addEventListener('click', () => {
+  updateCategory(inboxCategory, 'inbox');
+});
+
+logoEl.addEventListener('click', () => {
+  window.location.reload();
+});
 
 inboxCategory.addEventListener('click', () => {
   updateCategory(inboxCategory, 'inbox');
