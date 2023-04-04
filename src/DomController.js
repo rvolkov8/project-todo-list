@@ -2,10 +2,9 @@ import './css-files/task.css';
 import './css-files/add-task-el.css';
 import DateObj from './Date';
 
-const date = DateObj();
-
 // Factory functions to DOM controller
-export default function domController() {
+export default function domController(taskLibrary) {
+  const date = DateObj();
   function toggleAppearanceFlex(element) {
     const el = element;
     el.style.display = el.style.display === 'none' ? 'flex' : 'none';
@@ -65,6 +64,17 @@ export default function domController() {
     return `${day} ${formattedMonth} ${year}`;
   }
 
+  function showTasks(tasksArr, tasksEl) {
+    // eslint-disable-next-line no-param-reassign
+    tasksEl.innerHTML = '';
+
+    tasksArr.forEach((task) => {
+      // eslint-disable-next-line no-use-before-define
+      const taskElement = createTaskElement(task);
+      tasksEl.appendChild(taskElement);
+    });
+  }
+
   function createTaskElement(task) {
     const taskContainer = document.createElement('div');
     taskContainer.classList.add('task-container');
@@ -104,6 +114,11 @@ export default function domController() {
     const deleteTaskButton = document.createElement('button');
     deleteTaskButton.classList.add('delete-task-button');
     deleteTaskButton.textContent = 'X';
+    deleteTaskButton.addEventListener('click', () => {
+      const tasksEl = document.querySelector('.tasks');
+      taskLibrary.deleteTask(task);
+      showTasks(taskLibrary.getTasks(task.project), tasksEl);
+    });
 
     taskOperationsContainer.append(deleteTaskButton);
 
@@ -114,16 +129,6 @@ export default function domController() {
     );
 
     return taskContainer;
-  }
-
-  function showTasks(tasksArr, tasksEl) {
-    // eslint-disable-next-line no-param-reassign
-    tasksEl.innerHTML = '';
-
-    tasksArr.forEach((task) => {
-      const taskElement = createTaskElement(task);
-      tasksEl.appendChild(taskElement);
-    });
   }
 
   function showProjects(projectArr, projectsEl) {

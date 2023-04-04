@@ -61,6 +61,12 @@ export default function taskLibrary() {
     return projectTasksArr;
   }
 
+  function deleteTask(task) {
+    const indexToDelete = tasksArr.findIndex((obj) => obj.title === task.title);
+    tasksArr.splice(indexToDelete, 1);
+    localStorage.setItem('tasksArr', JSON.stringify(tasksArr));
+  }
+
   function getProjectNames() {
     projectNamesArr = [];
     projectsArr.forEach((project) => {
@@ -81,5 +87,6 @@ export default function taskLibrary() {
     getTasks,
     addProject,
     getProjectNames,
+    deleteTask,
   };
 }

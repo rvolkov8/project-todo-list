@@ -1,10 +1,10 @@
-import pageController from './PageController';
 import taskLibrary from './TaskLibrary';
+import pageController from './PageController';
 import domController from './DomController';
 
 const taskLibraryObj = taskLibrary();
-const pageControllerObj = pageController(taskLibraryObj);
-const domControllerObj = domController();
+const domControllerObj = domController(taskLibraryObj);
+const pageControllerObj = pageController(taskLibraryObj, domControllerObj);
 
 const inboxCategory = document.querySelector('.category.inbox');
 const todayCategory = document.querySelector('.category.today');

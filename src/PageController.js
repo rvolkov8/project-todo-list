@@ -1,13 +1,11 @@
 import './css-files/page.css';
 
-import domController from './DomController';
 import taskForm from './TaskForm';
 
-export default function pageController(taskLibraryObj) {
+export default function pageController(taskLibrary, domController) {
   const mainContentEl = document.querySelector('.main-content');
 
   const taskFormObj = taskForm();
-  const domControllerObj = domController();
 
   function createPage(page) {
     const titleText = page;
@@ -64,25 +62,26 @@ export default function pageController(taskLibraryObj) {
 
     // Listens to show/hide add task form and show/hide add new task element
     addTaskEl.addEventListener('click', () => {
-      domControllerObj.toggleAppearanceFlex(addTaskEl);
-      domControllerObj.toggleAppearanceFlex(newTaskForm);
+      domController.toggleAppearanceFlex(addTaskEl);
+      domController.toggleAppearanceFlex(newTaskForm);
     });
 
     // Listens to show/hide add task form and show/hide add new task element
     cancelButton.addEventListener('click', () => {
-      domControllerObj.toggleAppearanceFlex(addTaskEl);
-      domControllerObj.toggleAppearanceFlex(newTaskForm);
+      domController.toggleAppearanceFlex(addTaskEl);
+      domController.toggleAppearanceFlex(newTaskForm);
       taskFormObj.clearForm();
     });
 
     // Creates new todo object, pushes it into the library and clears the add task form
+    // !!! not the same taskLibrary object as in domController
     addTaskButton.addEventListener('click', () => {
       const taskInfoArr = taskFormObj.getTaskInfo();
-      const newTask = taskLibraryObj.createTask(taskInfoArr);
-      taskLibraryObj.addTask(newTask);
+      const newTask = taskLibrary.createTask(taskInfoArr);
+      taskLibrary.addTask(newTask);
       taskFormObj.clearForm();
       tasksEl.style.display = 'flex';
-      domControllerObj.showTasks(taskLibraryObj.getTasks(page), tasksEl);
+      domController.showTasks(taskLibrary.getTasks(page), tasksEl);
     });
   }
 
@@ -91,7 +90,7 @@ export default function pageController(taskLibraryObj) {
     createPage(page);
 
     const tasksEl = document.querySelector('.tasks');
-    domControllerObj.showTasks(taskLibraryObj.getTasks(page), tasksEl);
+    domController.showTasks(taskLibrary.getTasks(page), tasksEl);
   }
 
   const inboxCategory = document.querySelector('.category.inbox');
