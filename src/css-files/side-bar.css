@@ -139,6 +139,10 @@
   border-radius: 9px;
 
   cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .project:hover {
@@ -195,4 +199,27 @@
 
 .add-button-project:hover {
   background: var(--lighter-blue);
+}
+
+.delete-project-button {
+  display: none;
+  border: none;
+  border-radius: 50px;
+
+  font-size: 0.7rem;
+  height: 17px;
+  width: 17px;
+  background-color: var(--gray);
+  color: var(--darker-gray);
+
+  cursor: pointer;
+}
+
+.delete-project-button:hover {
+  color: var(--white);
+  background-color: var(--lighter-red);
+}
+
+.project:hover > .delete-project-button {
+  display: block;
 }

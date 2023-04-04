@@ -132,17 +132,39 @@ export default function domController(taskLibrary) {
   }
 
   function showProjects(projectArr, projectsEl) {
+    // eslint-disable-next-line no-param-reassign
+    projectsEl.innerHTML = '';
+
     projectArr.forEach((project) => {
-      const projectDiv = document.createElement('div');
-      projectDiv.classList.add('project');
-
-      const projectNameDiv = document.createElement('div');
-      projectNameDiv.classList.add('project-name');
-      projectNameDiv.textContent = project;
-
-      projectDiv.append(projectNameDiv);
-      projectsEl.append(projectDiv);
+      // eslint-disable-next-line no-use-before-define
+      const projectElement = createProjectElement(project);
+      projectsEl.appendChild(projectElement);
     });
+  }
+
+  function createProjectElement(project) {
+    const projectContainer = document.createElement('div');
+    projectContainer.classList.add('project');
+
+    const projectNameDiv = document.createElement('div');
+    projectNameDiv.classList.add('project-name');
+    projectNameDiv.textContent = project;
+
+    const deleteProjectButton = document.createElement('button');
+    deleteProjectButton.classList.add('delete-project-button');
+    deleteProjectButton.textContent = 'X';
+    deleteProjectButton.addEventListener('click', () => {
+      const projectsContainer = document.querySelector('.projects-container');
+      taskLibrary.deleteProject(project);
+      showProjects(
+        taskLibrary.getProjectNames(project.name),
+        projectsContainer
+      );
+    });
+
+    projectContainer.append(projectNameDiv, deleteProjectButton);
+
+    return projectContainer;
   }
 
   return {
