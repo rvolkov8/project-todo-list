@@ -103,6 +103,13 @@ export default function domController(taskLibrary) {
       default:
         break;
     }
+    checkBox.addEventListener('click', () => {
+      setTimeout(() => {
+        const tasksEl = document.querySelector('.tasks');
+        taskLibrary.deleteTask(task);
+        showTasks(taskLibrary.getTasks(task.project), tasksEl);
+      }, 240);
+    });
 
     checkBoxContainer.appendChild(checkBox);
 
