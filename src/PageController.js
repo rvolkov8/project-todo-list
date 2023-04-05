@@ -1,11 +1,9 @@
-import taskLibrary from './TaskLibrary';
 import DateObj from './Date';
 import taskForm from './TaskForm';
 
-export default function pageController() {
+export default function pageController(taskLibrary) {
   const mainContentEl = document.querySelector('.main-content');
 
-  const taskLibraryObj = taskLibrary();
   const taskFormObj = taskForm();
   const date = DateObj();
 
@@ -110,8 +108,8 @@ export default function pageController() {
     checkBox.addEventListener('click', () => {
       setTimeout(() => {
         const tasksEl = document.querySelector('.tasks');
-        taskLibraryObj.deleteTask(task);
-        showTasks(taskLibraryObj.getTasks(task.project), tasksEl);
+        taskLibrary.deleteTask(task);
+        showTasks(taskLibrary.getTasks(task.project), tasksEl);
       }, 240);
     });
 
@@ -146,7 +144,7 @@ export default function pageController() {
     deleteTaskButton.textContent = 'X';
     deleteTaskButton.addEventListener('click', () => {
       const tasksEl = document.querySelector('.tasks');
-      taskLibraryObj.deleteTask(task);
+      taskLibrary.deleteTask(task);
       showTasks(taskLibrary.getTasks(task.project), tasksEl);
     });
 
@@ -230,11 +228,11 @@ export default function pageController() {
     // Creates new todo object, pushes it into the library and clears the add task form
     addTaskButton.addEventListener('click', () => {
       const taskInfoArr = taskFormObj.getTaskInfo();
-      const newTask = taskLibraryObj.createTask(taskInfoArr);
-      taskLibraryObj.addTask(newTask);
+      const newTask = taskLibrary.createTask(taskInfoArr);
+      taskLibrary.addTask(newTask);
       taskFormObj.clearForm();
       tasksEl.style.display = 'flex';
-      showTasks(taskLibraryObj.getTasks(page), tasksEl);
+      showTasks(taskLibrary.getTasks(page), tasksEl);
     });
   }
 
@@ -243,7 +241,7 @@ export default function pageController() {
     createPage(page);
 
     const tasksEl = document.querySelector('.tasks');
-    showTasks(taskLibraryObj.getTasks(page), tasksEl);
+    showTasks(taskLibrary.getTasks(page), tasksEl);
   }
 
   const inboxCategory = document.querySelector('.category.inbox');
@@ -279,7 +277,7 @@ export default function pageController() {
   }
 
   function updateProjectSelectEl(categoryName) {
-    const projectNames = taskLibraryObj.getProjectNames();
+    const projectNames = taskLibrary.getProjectNames();
     const projectSelectEl = document.querySelector('.task-project');
     projectSelectEl.innerHTML = '';
     projectSelectEl.append(createProjectOption('inbox'));
@@ -295,7 +293,7 @@ export default function pageController() {
   function addProjectEventListener() {
     const projectsNodes = document.querySelectorAll('.project');
     for (let i = 0; i < projectsNodes.length; i += 1) {
-      const projectNames = taskLibraryObj.getProjectNames();
+      const projectNames = taskLibrary.getProjectNames();
       const node = projectsNodes[i];
       node.addEventListener('click', () => {
         chooseCategoryAndUpdateUI(node, projectNames[i]);
@@ -329,13 +327,13 @@ export default function pageController() {
     deleteProjectButton.textContent = 'X';
     deleteProjectButton.addEventListener('click', (e) => {
       const projectsContainer = document.querySelector('.projects-container');
-      if (taskLibraryObj.getProjectNames().length < 1) {
+      taskLibrary.deleteProject(project);
+      if (taskLibrary.getProjectNames().length < 1) {
         createPage('inbox');
         chooseCategoryAndUpdateUI(inboxCategory, 'inbox');
         updateProjectSelectEl('inbox');
       }
-      taskLibraryObj.deleteProject(project);
-      showProjects(taskLibraryObj.getProjectNames(), projectsContainer);
+      showProjects(taskLibrary.getProjectNames(), projectsContainer);
       e.stopPropagation();
     });
 
