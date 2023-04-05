@@ -1,6 +1,14 @@
 import taskLibrary from './TaskLibrary';
 import pageController from './PageController';
 
+import './css-files/style.css';
+import './css-files/top-bar.css';
+import './css-files/side-bar.css';
+import './css-files/page.css';
+import './css-files/task.css';
+import './css-files/add-task-el.css';
+import './css-files/add-task-form.css';
+
 const taskLibraryObj = taskLibrary();
 const pageControllerObj = pageController(taskLibraryObj);
 

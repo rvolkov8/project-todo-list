@@ -1,6 +1,3 @@
-import './css-files/page.css';
-import './css-files/task.css';
-import './css-files/add-task-el.css';
 import taskLibrary from './TaskLibrary';
 import DateObj from './Date';
 import taskForm from './TaskForm';
