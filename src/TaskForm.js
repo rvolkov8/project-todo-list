@@ -43,19 +43,19 @@ export default function taskForm() {
     taskPriority.classList.add('task-priority');
 
     const priorityOne = document.createElement('option');
-    priorityOne.setAttribute('value', 'priorityOne');
+    priorityOne.setAttribute('value', '1');
     priorityOne.textContent = 'Priority 1';
     const priorityTwo = document.createElement('option');
-    priorityTwo.setAttribute('value', 'priorityTwo');
+    priorityTwo.setAttribute('value', '2');
     priorityTwo.textContent = 'Priority 2';
     const priorityThree = document.createElement('option');
-    priorityThree.setAttribute('value', 'priorityThree');
+    priorityThree.setAttribute('value', '3');
     priorityThree.textContent = 'Priority 3';
     const priorityFour = document.createElement('option');
-    priorityFour.setAttribute('value', 'priorityFour');
+    priorityFour.setAttribute('value', '4');
     priorityFour.textContent = 'Priority 4';
     const priorityFive = document.createElement('option');
-    priorityFive.setAttribute('value', 'priorityFive');
+    priorityFive.setAttribute('value', '5');
     priorityFive.textContent = 'Priority 5';
 
     taskPriority.append(
@@ -131,7 +131,7 @@ export default function taskForm() {
   }
 
   function clearForm() {
-    taskName.value = 'It is an example of task name';
+    taskName.value = 'p1';
     taskDescription.value =
       'It is an example of task description in one sentence';
     taskDueDate.value = date.formatDate(date.currDate);

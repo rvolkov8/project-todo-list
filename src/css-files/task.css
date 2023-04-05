@@ -10,16 +10,32 @@
 :root {
   font-size: 16px;
 
-  --standard-blue: #2563eb;
-  --lighter-blue: #3b82f6;
+  --bg-blue: #dbeafe;
+  --border-blue: #93c5fd;
   --lightest-blue: #60a5fa;
+  --lighter-blue: #3b82f6;
+  --standard-blue: #2563eb;
+
   --white: #fff;
+
   --gray: #f0f0f0;
   --dark-gray: #dedede;
   --darker-gray: #c7c7c7;
+  --darkest-gray: #6b7280;
+
   --black: #000;
+
+  --lightest-red: #fef2f2;
   --lighter-red: #f87171;
   --red: #ef4444;
+
+  --lightest-orange: #ffedd5;
+  --lighter-orange: #fdba74;
+  --orange: #fb923c;
+
+  --lightest-green: #dcfce7;
+  --lighter-green: #86efac;
+  --green: #4ade80;
 }
 
 .task-container {
@@ -77,4 +93,72 @@
 .delete-task-button:hover {
   color: var(--white);
   background-color: var(--lighter-red);
+}
+
+input[type="checkbox"],
+input[type="checkbox"].priorityFive {
+  margin-top: 3px;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 15px;
+  height: 15px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"].priorityOne {
+  background-color: var(--lightest-red);
+  border-color: var(--lighter-red);
+}
+
+input[type="checkbox"].priorityTwo {
+  background-color: var(--lightest-orange);
+  border-color: var(--lighter-orange);
+}
+
+input[type="checkbox"].priorityThree {
+  background-color: var(--bg-blue);
+  border-color: var(--border-blue);
+}
+
+input[type="checkbox"].priorityFour {
+  background-color: var(--lightest-green);
+  border-color: var(--lighter-green);
+}
+
+input[type="checkbox"]::before,
+input[type="checkbox"].priorityFive::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 8px 8px var(--darkest-gray);
+}
+
+input[type="checkbox"].priorityOne::before {
+  box-shadow: inset 8px 8px var(--red);
+}
+
+input[type="checkbox"].priorityTwo::before {
+  box-shadow: inset 8px 8px var(--orange);
+}
+
+input[type="checkbox"].priorityThree::before {
+  box-shadow: inset 8px 8px var(--lightest-blue);
+}
+
+input[type="checkbox"].priorityFour::before {
+  box-shadow: inset 8px 8px var(--green);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }

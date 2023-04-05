@@ -84,6 +84,25 @@ export default function domController(taskLibrary) {
 
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
+    switch (task.priority) {
+      case '1':
+        checkBox.classList.add('priorityOne');
+        break;
+      case '2':
+        checkBox.classList.add('priorityTwo');
+        break;
+      case '3':
+        checkBox.classList.add('priorityThree');
+        break;
+      case '4':
+        checkBox.classList.add('priorityFour');
+        break;
+      case '5':
+        checkBox.classList.add('priorityFive');
+        break;
+      default:
+        break;
+    }
 
     checkBoxContainer.appendChild(checkBox);
 

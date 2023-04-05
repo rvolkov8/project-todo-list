@@ -32,6 +32,11 @@ export default function taskLibrary() {
     return tasksArr;
   }
 
+  function sortTasksByPriority(projectTasks) {
+    projectTasks.sort((a, b) => a.priority - b.priority);
+    return projectTasks;
+  }
+
   function getTasks(page) {
     const inboxTasksArr = [];
     const todayTasksArr = [];
@@ -50,15 +55,14 @@ export default function taskLibrary() {
 
     switch (page) {
       case 'inbox':
-        return inboxTasksArr;
+        return sortTasksByPriority(inboxTasksArr);
       case 'today':
-        return todayTasksArr;
+        return sortTasksByPriority(todayTasksArr);
       case 'this-week':
-        return thisWeekArr;
+        return sortTasksByPriority(thisWeekArr);
       default:
-        break;
+        return sortTasksByPriority(projectTasksArr);
     }
-    return projectTasksArr;
   }
 
   function deleteTask(task) {
