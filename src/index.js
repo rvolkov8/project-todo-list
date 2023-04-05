@@ -69,10 +69,11 @@ addButton.addEventListener('click', () => {
   const projectNameInputField = document.querySelector('.project-name-input');
   const projectName = projectNameInputField.value;
 
-  taskLibraryObj.addProject(projectName);
+  if (projectName !== '') {
+    taskLibraryObj.addProject(projectName);
 
-  pageControllerObj.updateTaskForm(projectName);
-
+    pageControllerObj.updateTaskForm(projectName);
+  }
   pageControllerObj.showProjects(
     taskLibraryObj.getProjectNames(),
     projectsContainer
