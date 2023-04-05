@@ -10,11 +10,32 @@
 :root {
   font-size: 16px;
 
-  --standard-blue: #2563eb;
-  --lighter-blue: #3b82f6;
+  --bg-blue: #dbeafe;
+  --border-blue: #93c5fd;
   --lightest-blue: #60a5fa;
+  --lighter-blue: #3b82f6;
+  --standard-blue: #2563eb;
+
   --white: #fff;
+
   --gray: #f0f0f0;
+  --dark-gray: #dedede;
+  --darker-gray: #c7c7c7;
+  --darkest-gray: #6b7280;
+
+  --black: #000;
+
+  --lightest-red: #fef2f2;
+  --lighter-red: #f87171;
+  --red: #ef4444;
+
+  --lightest-orange: #ffedd5;
+  --lighter-orange: #fdba74;
+  --orange: #fb923c;
+
+  --lightest-green: #dcfce7;
+  --lighter-green: #86efac;
+  --green: #10b981;
 }
 
 .content {

@@ -1,8 +1,8 @@
 import DateObj from './Date';
 
-const date = DateObj();
 // Factory functions to create library for all the tasks
 export default function taskLibrary() {
+  const date = DateObj();
   const tasksArr = localStorage.getItem('tasksArr')
     ? JSON.parse(localStorage.getItem('tasksArr'))
     : [];
@@ -85,9 +85,7 @@ export default function taskLibrary() {
   }
 
   function deleteProject(project) {
-    const indexToDelete = projectsArr.findIndex(
-      (obj) => obj.name === project.name
-    );
+    const indexToDelete = projectsArr.findIndex((obj) => obj.name === project);
     projectsArr.splice(indexToDelete, 1);
     localStorage.setItem('projectsArr', JSON.stringify(projectsArr));
   }
