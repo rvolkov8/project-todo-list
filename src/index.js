@@ -1,3 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { initializeApp } from 'firebase/app';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 import taskLibrary from './TaskLibrary';
 import pageController from './PageController';
 
@@ -8,6 +12,28 @@ import './css-files/page.css';
 import './css-files/task.css';
 import './css-files/add-task-el.css';
 import './css-files/add-task-form.css';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAp8J0QZ5JyUTb23T3yTEqCNAwo5fLBY8w',
+  authDomain: 'todo-list-4a07b.firebaseapp.com',
+  projectId: 'todo-list-4a07b',
+  storageBucket: 'todo-list-4a07b.appspot.com',
+  messagingSenderId: '365124748618',
+  appId: '1:365124748618:web:00020e7e7c9cb59fb7adb3',
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Detect auth state
+onAuthStateChanged(auth, (user) => {
+  if (user !== null) {
+    console.log('logged in!');
+  } else {
+    console.log('No user');
+  }
+});
 
 const taskLibraryObj = taskLibrary();
 const pageControllerObj = pageController(taskLibraryObj);
